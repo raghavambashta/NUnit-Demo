@@ -97,5 +97,11 @@ namespace TestMyAreas
             List<string> names = areas.GetNames();
             CollectionAssert.AllItemsAreUnique(names, "Unique items are NOT present");
         }
+
+        [Test]
+        public void Debit_Check()
+        {
+
+        }
     }
 }
