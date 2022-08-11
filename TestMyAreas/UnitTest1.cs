@@ -101,7 +101,34 @@ namespace TestMyAreas
         [Test]
         public void Debit_Check()
         {
+            Banking banking = new Banking { Id = 101, Name = "Tom", Balance = 20000 };
+            banking.Debit(5000);
+            Assert.AreEqual(15000, banking.Balance, "Balance value not Matching");
+        }
 
+        [Test]
+        public void Credit_Message_Check()
+        {
+            Banking banking = new Banking { Id = 101, Name = "Tom", Balance = 1000 };
+            string expresult = "Amount < 0";
+            string actresult = null;
+            try
+            {
+                banking.Credit(-5000);
+            }
+            catch(System.Exception e)
+            {
+                actresult = e.Message;
+            }
+            Assert.AreEqual(expresult, actresult);  
+        }
+
+        [Test]
+        public void Credit_Check()
+        {
+            Banking banking = new Banking { Id = 102, Name = "Harry", Balance = 20000 };
+            banking.Credit(5000);
+            Assert.AreEqual(25000, banking.Balance, "Balance value not Matching");
         }
     }
 }
