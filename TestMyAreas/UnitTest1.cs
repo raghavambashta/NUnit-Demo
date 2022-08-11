@@ -18,7 +18,7 @@ namespace TestMyAreas
         }
 
         [Test]
-        public void Test1()
+        public void DemoTest()
         {
             Assert.Pass();
         }
@@ -46,6 +46,18 @@ namespace TestMyAreas
             actresult = areas.Triangle(8, 4);
 
             Assert.AreEqual(expresult, actresult, 5, "Areas not matching");
+        }
+
+        [TestCase(30, 20, ExpectedResult = 600)]
+        [TestCase(40, 10, ExpectedResult = 300)]
+        [TestCase(25, 25, ExpectedResult = 630)]
+        [TestCase(90, 90, ExpectedResult = 8100)]
+        [TestCase(60, 60, ExpectedResult = 3600)]
+
+        public int RectangleTest (int l, int b)
+        {
+            int actresult = areas.Rectangle(l, b);
+            return actresult;
         }
     }
 }
